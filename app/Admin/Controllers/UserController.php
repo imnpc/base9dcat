@@ -102,7 +102,7 @@ class UserController extends AdminController
             $form->text('parent_id');
 //            $form->text('status');
             $form->switch('status');
-
+            $form->distpicker(['province_id', 'city_id', 'district_id'])->type('code')->select2();
             $form->display('last_login_at');
             $form->display('last_login_ip');
             $form->display('created_at');

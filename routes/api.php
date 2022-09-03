@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\AreaController;
+use App\Http\Controllers\Api\IndexController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthorizationsController;
@@ -29,8 +31,12 @@ Route::prefix('v1')
         Route::middleware('throttle:' . config('api.rate_limits.access'))
             ->group(function () {
                 // 游客可以访问的接口
-//                Route::get('test', [IndexController::class, 'test']); // test
+                Route::get('test', [IndexController::class, 'test']); // test
 //                Route::get('demo', [IndexController::class, 'demo']); // test
+                Route::get('areaList', [AreaController::class, 'areaList']); // 全国省市区列表
+                Route::get('provinceList', [AreaController::class, 'provinceList']); // 全国省份列表
+                Route::get('cityList', [AreaController::class, 'cityList']); // 某省份包含的市列表
+                Route::get('districtList', [AreaController::class, 'districtList']); // 某市包含的区列表
 
                 // 登录后可以访问的接口
                 Route::middleware('auth:api')->group(function () {

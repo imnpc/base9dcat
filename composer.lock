@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf714ab7ba938b0d79588b4a09b3c9ba",
+    "content-hash": "9aac9e95d5d1e5ed11882d40bf350287",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -6338,6 +6338,61 @@
                 }
             ],
             "time": "2022-08-05T17:58:37+00:00"
+        },
+        {
+            "name": "sparkinzy/dcat-distpicker",
+            "version": "1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sparkinzy/dcat-distpicker.git",
+                "reference": "ca17df085c6789fa25dcd18f8711758cb98af9c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sparkinzy/dcat-distpicker/zipball/ca17df085c6789fa25dcd18f8711758cb98af9c1",
+                "reference": "ca17df085c6789fa25dcd18f8711758cb98af9c1",
+                "shasum": ""
+            },
+            "require": {
+                "dcat/laravel-admin": "~2.0",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "dcat-admin": "Sparkinzy\\Dcat\\Distpicker\\DcatDistpickerServiceProvider",
+                "laravel": {
+                    "providers": [
+                        "Sparkinzy\\Dcat\\Distpicker\\DcatDistpickerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sparkinzy\\Dcat\\Distpicker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "sparkinzy",
+                    "email": "sparkinzy@163.com"
+                }
+            ],
+            "description": "省市区地址选择器，支持select2",
+            "homepage": "https://github.com/sparkinzy/dcat-distpicker",
+            "keywords": [
+                "dcat-admin",
+                "distpicker",
+                "extension"
+            ],
+            "support": {
+                "issues": "https://github.com/Sparkinzy/dcat-distpicker/issues",
+                "source": "https://github.com/Sparkinzy/dcat-distpicker/tree/1.0.10"
+            },
+            "time": "2021-11-04T04:10:51+00:00"
         },
         {
             "name": "spatie/eloquent-sortable",

@@ -29,6 +29,7 @@
         "overtrue/laravel-lang": "~6.0",
         "propaganistas/laravel-phone": "^4.3",
         "psr/simple-cache": "^2.0",
+        "sparkinzy/dcat-distpicker": "^1.0",
         "spatie/laravel-query-builder": "^5.0",
         "torann/geoip": "^3.0",
         "vinkla/hashids": "^10.0",
