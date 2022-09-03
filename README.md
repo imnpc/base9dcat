@@ -11,6 +11,8 @@ https://learnku.com/docs/dcat-admin/2.x
 
 ### 注意事项
 
+省市区已有API  参见 routes/api.php
+
 如果模块包含省市区,必须在该模型内数据库添加以下字段
 
 $table->integer('province_id')->nullable()->comment('省份 ID');
