@@ -128,7 +128,7 @@ INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `e
 INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `extension`, `show`, `created_at`, `updated_at`) VALUES (6, 2, 7, 'Menu', '', 'auth/menu', '', 1, '2022-08-29 10:13:30', '2022-08-29 11:23:09');
 INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `extension`, `show`, `created_at`, `updated_at`) VALUES (7, 2, 8, 'Extensions', '', 'auth/extensions', '', 1, '2022-08-29 10:13:30', '2022-08-29 11:23:09');
 INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `extension`, `show`, `created_at`, `updated_at`) VALUES (8, 0, 9, 'Dcat Plus', 'feather icon-settings', 'dcat-plus/site', 'celaraze.dcat-extension-plus', 1, '2022-08-29 10:56:08', '2022-08-29 11:23:09');
-INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `extension`, `show`, `created_at`, `updated_at`) VALUES (9, 0, 2, '用户', 'fa-users', '/users', '', 1, '2022-08-29 11:23:03', '2022-08-29 11:23:09');
+INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `extension`, `show`, `created_at`, `updated_at`) VALUES (9, 0, 2, '用户', 'fa-users', '/user', '', 1, '2022-08-29 11:23:03', '2022-08-29 11:23:09');
 COMMIT;
 
 -- ----------------------------
