@@ -23,10 +23,15 @@ class SocialUserResolver implements SocialUserResolverInterface
     public function resolveUserByProviderCredentials(string $provider, string $accessToken): ?Authenticatable
     {
         $providerUser = null;
+
         try {
             if ($provider == 'twitter') {
                 $accessTokenSecret = request('access_token_secret');
                 $providerUser = Socialite::driver($provider)->userFromTokenAndSecret($accessToken, $accessTokenSecret);
+            } elseif ($provider == 'weixin') {
+                $openid = request('openid');
+                Socialite::driver('weixin')->setOpenId('openid');
+                $providerUser = Socialite::driver($provider)->userFromToken($accessToken);
             } else {
                 $providerUser = Socialite::driver($provider)->userFromToken($accessToken);
             }

@@ -132,6 +132,6 @@ return [
         'trigger' => env('QUERY_LOG_TRIGGER'),
 
         // Log Channel
-        'channel' => 'stack',
+        'channel' => 'daily',
     ],
 ];

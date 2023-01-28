@@ -76,7 +76,7 @@ class Handler extends ExceptionHandler
                     $response['message'] = $error_msg;
                 } elseif ($error_msg = "Unauthenticated") {
                     $response['code'] = Response::HTTP_UNAUTHORIZED;
-                    $response['data']['message'] = $error_msg;
+                    $response['data']['message'] = '请务必允许微信授权';
                 } else {
                     $response['message'] = $error_msg;
                 }
@@ -91,7 +91,10 @@ class Handler extends ExceptionHandler
             } elseif ($e instanceof ModelNotFoundException) {
                 // 模型未找到
                 $error_code = Response::HTTP_NOT_FOUND;
-                $response['message'] = $error_model_msg_404;
+                $response['code'] = 200;
+                $error->StatusCode = 200;
+                $response['data']['code'] = Response::HTTP_NOT_FOUND;
+                $response['data']['message'] = $error_model_msg_404;
             } elseif ($e instanceof MethodNotAllowedHttpException) { // 请求方法错误
                 $error_code = Response::HTTP_METHOD_NOT_ALLOWED;
                 $response['code'] = Response::HTTP_METHOD_NOT_ALLOWED;

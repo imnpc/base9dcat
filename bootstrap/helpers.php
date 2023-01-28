@@ -15,8 +15,11 @@ use Overtrue\EasySms\EasySms;
  * @param string $disk 磁盘名称
  * @return \App\Http\Resources\ImageResource
  */
-function upload_images($file, $type, $user_id, $disk = "oss")
+function upload_images($file, $user_id, $type = "image", $disk = "public")
 {
+    if (config('filesystems.default') != 'public') {
+        $disk = config('filesystems.default');
+    }
     $path = Storage::disk($disk)->putFile($type . '/' . date('Y/m/d'), $file);
     $image = new App\Models\Image();
     $image->type = $type; //上传类型 参见 ImageRequest
@@ -40,6 +43,17 @@ function image_ext()
         $ext = config('upload.image_ext');
     } else {
         $ext = "gif,bmp,jpeg,png"; // 默认上传图像类型
+    }
+
+    return $ext;
+}
+
+function file_ext()
+{
+    if (config('image.file_ext')) {
+        $ext = config('image.file_ext');
+    } else {
+        $ext = "gif,bmp,jpeg,png,zip,rar,docx,dox,mp4,mov"; // 默认上传文件类型
     }
 
     return $ext;
@@ -144,7 +158,7 @@ function sctonum($num, $double = 5)
  * @param  string  $field  订单号查询字段
  * @return bool|string
  */
-function createNO($model, $field)
+function createNO(string $model, string $field): bool|string
 {
     // 订单流水号前缀
     $prefix = date('YmdHis');
@@ -168,13 +182,27 @@ function createNO($model, $field)
  * @param $str
  * @return int
  */
-function isAllChinese($str)
+function isAllChinese($str): bool|int
 {
     $len = preg_match('/^[\x{4e00}-\x{9fa5}]+$/u', $str);
     if ($len) {
         return true;
     }
     return false;
+}
+
+/**
+ * 验证是否是url
+ * @param  string  $url url
+ * @return boolean        是否是url
+ */
+function is_url(string $url): bool
+{
+    if (filter_var($url, FILTER_VALIDATE_URL)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**

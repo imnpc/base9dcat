@@ -6,6 +6,9 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use SocialiteProviders\Manager\SocialiteWasCalled;
+use SocialiteProviders\Weixin\WeixinExtendSocialite;
+use SocialiteProviders\WeixinWeb\WeixinWebExtendSocialite;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -26,6 +29,11 @@ class EventServiceProvider extends ServiceProvider
         // refresh_token 生成以后删除已吊销的 token
         'Laravel\Passport\Events\RefreshTokenCreated' => [
 //            'App\Listeners\PruneOldTokens',
+        ],
+        SocialiteWasCalled::class => [
+            // ... other providers
+            WeixinExtendSocialite::class.'@handle', // 微信API登录
+            WeixinWebExtendSocialite::class.'@handle', // 微信 PC 登录
         ],
     ];
 

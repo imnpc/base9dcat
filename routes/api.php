@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Api\AreaController;
 use App\Http\Controllers\Api\IndexController;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\UtilsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthorizationsController;
@@ -37,11 +39,14 @@ Route::prefix('v1')
                 Route::get('provinceList', [AreaController::class, 'provinceList']); // 全国省份列表
                 Route::get('cityList', [AreaController::class, 'cityList']); // 某省份包含的市列表
                 Route::get('districtList', [AreaController::class, 'districtList']); // 某市包含的区列表
+                Route::post('weixinCode', [UtilsController::class, 'weixinCode']); // 用户微信CODE换token
+                Route::post('jssdksign', [UtilsController::class, 'jsSdkSign']); // 生成 JSSDK 签名
 
                 // 登录后可以访问的接口
                 Route::middleware('auth:api')->group(function () {
-//                    Route::get('user', [UserController::class, 'me']); // 当前登录用户信息
+                    Route::get('user', [UserController::class, 'me']); // 当前登录用户信息
 //                    Route::resource('feedback', FeedbackController::class); // 问题反馈
+                    Route::post('upload', [UtilsController::class, 'upload']); // 文件上传接口
                 });
             });
     });

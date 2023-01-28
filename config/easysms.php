@@ -19,10 +19,12 @@ return [
         // 默认可用的发送网关
         'gateways' => [
             'aliyun',
+            'qxt',
             'errorlog',
         ],
     ],
     'aliyun_sms_template' => env('ALIYUN_SMS_TEMPLATE'),
+    'sms_sign_name' => env('SMS_SIGN_NAME'),
 
     // 可用的网关配置
     'gateways' => [
@@ -37,7 +39,12 @@ return [
             'access_key_secret' => env('OSS_ACCESS_KEY_SECRET',''),
             'sign_name' => env('ALIYUN_SMS_SIGN_NAME',''),
         ],
-
+        // 企信通
+        'qxt' => [
+            'userid' => env('SMS_QXT_USERID', ''),
+            'account' => env('SMS_QXT_ACCOUNT', ''),
+            'password' => env('SMS_QXT_PASSWORD', ''),
+        ],
         // ...
     ],
 
